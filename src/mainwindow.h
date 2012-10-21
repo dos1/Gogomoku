@@ -1,13 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include <KMainWindow>
 
 namespace Ui {
 	class MainWindow;
 }
 
-class MainWindow : public QMainWindow
+class MainWindow : public KMainWindow
 {
 		Q_OBJECT
 		
@@ -15,9 +15,6 @@ class MainWindow : public QMainWindow
 		explicit MainWindow(QWidget *parent = 0);
 		~MainWindow();
 		
-	private slots:
-		void on_pushButton_clicked();
-
 	private:
 		Ui::MainWindow *ui;
 };

@@ -1,24 +1,15 @@
-PROJECT(gogomoku)
-FIND_PACKAGE(Qt4 REQUIRED)
+project(Gogomoku)
 
 cmake_minimum_required(VERSION 2.8)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
-SET(gogomoku_SOURCES main.cpp mainwindow.cpp)
-SET(gogomoku_HEADERS mainwindow.h)
-SET(gogomoku_FORMS mainwindow.ui)
+find_package(Qt4 REQUIRED)
 
-QT4_WRAP_CPP(gogomoku_HEADERS_MOC ${gogomoku_HEADERS})
-QT4_WRAP_UI(gogomoku_FORMS_HEADERS ${gogomoku_FORMS})
+find_package(KDE4 REQUIRED)
+include(KDE4Defaults)
+include_directories(${KDE4_INCLUDES})
 
-QT4_AUTOMOC(${gogomoku_SRCS})
-
-INCLUDE(${QT_USE_FILE})
-ADD_DEFINITIONS(${QT_DEFINITIONS})
-
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
-
-ADD_EXECUTABLE(gogomoku ${gogomoku_SOURCES} 
-    ${gogomoku_HEADERS_MOC} ${gogomoku_FORMS_HEADERS} )
-TARGET_LINK_LIBRARIES(gogomoku ${QT_LIBRARIES})
+add_subdirectory(src)
+add_subdirectory(po)
+add_subdirectory(data)
