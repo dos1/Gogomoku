@@ -1,6 +1,6 @@
 #include "move.h"
 
-virtual interface {
+virtual class interface {
 	public:
 		Game game;
 
