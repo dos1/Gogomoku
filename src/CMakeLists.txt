@@ -5,6 +5,7 @@ SET(gogomoku_SRCS
 	GameView.qml
 	ScrollBar.qml
 	Tile.qml
+	Explosion.qml
 )
 
 qt4_add_resources(gogomoku_RCC_SRCS gogomoku.qrc)

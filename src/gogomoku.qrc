@@ -8,5 +8,6 @@
         <file>images/tile_button1.png</file>
         <file>images/tile_button2.png</file>
         <file>ScrollBar.qml</file>
+        <file>Explosion.qml</file>
     </qresource>
 </RCC>

@@ -49,7 +49,11 @@ Item {
         enabled: tile.state===0
         onClicked: {
             tile.state=1
+            explosion.explode()
             //gameData.flip(index)
         }
+    }
+    Explosion {
+        id: explosion
     }
 }
