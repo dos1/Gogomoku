@@ -17,7 +17,7 @@ Item {
             // Board is 19x19 tiles
             id: boardGrid
             columns: 19
-            spacing: 2
+            spacing: 3
             transform: Scale { xScale: 0.5; yScale: 0.5}
 
             Repeater {
@@ -25,6 +25,8 @@ Item {
                 Tile {
                     state: 0
                     //width: modelData
+                    width: (gameView.width*2-3*18)/19 < 64 ? 64 :(gameView.width*2-3*18)/19
+                    height: width
                   //anchors.fill: parent
                 }
             }

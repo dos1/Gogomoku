@@ -8,6 +8,7 @@ Item {
 
     // Tile background rectangle
     Image {
+        anchors.fill: parent
         source: "images/tile_background.png"
         opacity: {
             //if (modelData.highlighted)
