@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>table.qml</file>
+        <file>GameView.qml</file>
+        <file>Tile.qml</file>
+        <file>images/particle.png</file>
+        <file>images/tile_background.png</file>
+        <file>images/tile_button1.png</file>
+        <file>images/tile_button2.png</file>
+        <file>ScrollBar.qml</file>
+    </qresource>
+</RCC>
