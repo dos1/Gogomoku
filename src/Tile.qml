@@ -48,7 +48,7 @@ Item {
         anchors.fill: parent
         enabled: tile.state===0
         onClicked: {
-            tile.state=1
+            tile.state=Math.random()%2+1
             explosion.explode()
             //gameData.flip(index)
         }
