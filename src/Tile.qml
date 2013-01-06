@@ -9,6 +9,7 @@ Item {
     // Tile background rectangle
     Image {
         anchors.fill: parent
+        smooth: true
         source: "images/tile_background.png"
         opacity: {
             //if (modelData.highlighted)
@@ -27,6 +28,8 @@ Item {
     // Tile Button
     Image {
         anchors.fill: parent
+        fillMode: Image.PreserveAspectFit
+        smooth: true
         source: {
             if (tile.state===1)
                 "images/tile_button1.png"
