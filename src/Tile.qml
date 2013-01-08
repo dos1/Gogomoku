@@ -51,7 +51,8 @@ Item {
         anchors.fill: parent
         enabled: tile.state===0
         onClicked: {
-            tile.state=Math.random()%2+1
+            parent.parent.lol=parent.parent.lol+1
+            tile.state=(parent.parent.lol%2)+1; //Math.random()%2+1
             explosion.explode()
             //gameData.flip(index)
         }

@@ -6,7 +6,7 @@ Item {
 
     function explode() {
         particles.burst(50)
-        //particles.count=1
+        //particles.count=50
     }
 
     Particles {
