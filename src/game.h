@@ -1,13 +1,18 @@
-#include "board.h"
+#ifndef GAME_H
+#define GAME_H
+
+#include "gameboard.h"
 #include "playstate.h"
 
 class Game {
 	public:
-        gamestate state;
 		PlayState state_play;
         time_t time_begin;
-        Pawn who_next;
-        gameboard board;
+        Pawn *who_next;
+        Gameboard board;
         History the_game;
 
+        Game();
+
 }
+#endif //GAME_H

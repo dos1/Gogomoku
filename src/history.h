@@ -7,11 +7,11 @@
 class History
 {
 public:
-    QList<Pawn> hist;
+    QList<Field> hist;
 
     History();
-    addToHistory(Pawn);
-    Pawn takeFromHistory();
+    addToHistory(Field);
+    Field takeFromHistory();
 };
 
 #endif // HISTORY_H
