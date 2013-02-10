@@ -16,10 +16,7 @@ Field::Field(int x, int y, class Gameboard *ptr)
     this->pwn=NULL;
 }
 
-initialize::Field(int x, int y, class Gameboard *ptr)
+clearField::Field()
 {
-    this->x=x;
-    this->y=y;
-    this->board=ptr;
     this->pwn=NULL;
 }

@@ -13,6 +13,8 @@ class Game {
         History the_game;
 
         Game();
+        newGame();
+        revertMove();
 
 }
 #endif //GAME_H

@@ -13,7 +13,7 @@ public:
     clearField();
     Field();
     Field(int x, int y, class Gameboard *ptr);
-    initialize(int x, int y, class Gameboard *ptr);
+    clearField();
 };
 
 #endif // FIELD_H
