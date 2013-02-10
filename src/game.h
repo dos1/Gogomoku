@@ -3,12 +3,11 @@
 
 class Game {
 	public:
-		Board state;
+        gamestate state;
 		PlayState state_play;
-		time_t time_begin;
+        time_t time_begin;
+        Pawn who_next;
+        gameboard board;
+        History the_game;
 
-		void add_move(Move move);
-		Move undo_move();
-		PlayState check_state();
-		time_t check_time();
 }
