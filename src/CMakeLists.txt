@@ -6,6 +6,10 @@ SET(gogomoku_SRCS
 	ScrollBar.qml
 	Tile.qml
 	Explosion.qml
+	field.cpp
+	gameboard.cpp
+	history.cpp
+	pawn.cpp
 )
 
 qt4_add_resources(gogomoku_RCC_SRCS gogomoku.qrc)
