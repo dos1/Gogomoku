@@ -98,3 +98,7 @@ time_t Game::gameTime(){
         return (time(0)-time_begin);
     }
 }
+
+Gameboard *Game::getBoard(){
+    return board;
+}

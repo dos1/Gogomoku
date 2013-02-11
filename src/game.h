@@ -32,5 +32,6 @@ class Game {
         PlayState getState();
         void stopTimer();
         time_t gameTime();
+        Gameboard *getBoard();
 };
 #endif //GAME_H
