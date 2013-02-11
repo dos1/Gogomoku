@@ -50,6 +50,6 @@ PlayState Game::drawing(){
     return state_play;
 }
 
-void addHistory(Field next){
-    the_story->addToHistory(next);
+void Game::addHistory(Field next){
+    the_story.addToHistory(next);
 }
