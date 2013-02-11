@@ -1,42 +1,40 @@
 #include "field.h"
 
 
-Field::Field(){
+Field::Field() {
     x=0;
     y=0;
     board=NULL;
     pwn=NULL;
 }
 
-Field::Field(int x, int y, Gameboard *ptr)
-{
+Field::Field(int x, int y, Gameboard *ptr) {
     this->x=x;
     this->y=y;
     this->board=ptr;
     this->pwn=NULL;
 }
 
-Field::initlialize(int x, int y, Gameboard *ptr){
+Field::initlialize(int x, int y, Gameboard *ptr) {
     this->x=x;
     this->y=y;
     this->board=ptr;
     this->pwn=NULL;
 }
 
-Field::clearField()
-{
+Field::clearField() {
     this->pwn=NULL;
 }
 
-int Field::getColor(){
+int Field::getColor() {
     return pwn->getColor();
 }
 
-bool Field::isEmpty(){
+bool Field::isEmpty() {
     if(pwn==NULL){
-        return TRUE;
+				return true;
     }
-    return FALSE;
+		return false;
 }
 
 Field::putPawn(){

@@ -3,8 +3,7 @@
 #include <KCmdLineArgs>
 #include <KAboutData>
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	KAboutData aboutData("gogomoku", 0, ki18n("Gogomoku"), "0.0.1",
 	                     ki18n("Simple Gomoku game."),
 	                     KAboutData::License_GPL,

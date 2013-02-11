@@ -7,8 +7,7 @@ namespace Ui {
 	class MainWindow;
 }
 
-class MainWindow : public KMainWindow
-{
+class MainWindow : public KMainWindow {
 		Q_OBJECT
 		
 	public:

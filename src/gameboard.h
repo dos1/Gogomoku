@@ -4,9 +4,8 @@
 #include "field.h"
 #include "game.h"
 
-class Gameboard
-{
-public:
+class Gameboard {
+	public:
     Field tab[19][19];
     Game *game;
 

@@ -4,9 +4,8 @@
 #include <QList>
 #include "pawn.h"
 
-class History
-{
-public:
+class Historym{
+	public:
     QList<Field> hist;
 
     History();

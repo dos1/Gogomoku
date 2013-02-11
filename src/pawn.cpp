@@ -1,15 +1,12 @@
 #include "pawn.h"
 
-Pawn::Pawn()
-{
+Pawn::Pawn() {
 }
 
-int WhitePawn::getColor()
-{
+int WhitePawn::getColor() {
     return 0;
 }
 
-int BlackPawn::getColor()
-{
+int BlackPawn::getColor() {
     return 1;
 }

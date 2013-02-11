@@ -1,7 +1,6 @@
 #include "gameboard.h"
 
-Gameboard::Gameboard(Game *ptr)
-{
+Gameboard::Gameboard(Game *ptr) {
     this->game=ptr;
     int i=0,j=0;
     for(i=0;i<19;i++){
@@ -11,7 +10,7 @@ Gameboard::Gameboard(Game *ptr)
     }
 }
 
-Gameboard::cleanBoard(){
+Gameboard::cleanBoard() {
     int i=0,j=0;
     for(i=0;i<19;i++){
         for(j=0;j<19;j++){
@@ -20,19 +19,19 @@ Gameboard::cleanBoard(){
     }
 }
 
-Gameboard::makeMove(int x, int y){
+Gameboard::makeMove(int x, int y) {
     tab[x][y].putPawn();
 }
 
-Gameboard::revertMove(){
+Gameboard::revertMove() {
 
 }
 
-Gameboard::addHistory(Field next){
+Gameboard::addHistory(Field next) {
 
 }
 
-PlayState Gameboard::checkState(int x, int y){
+PlayState Gameboard::checkState(int x, int y) {
     int color=tab[x][y].getColor();
     int i=0,j=0;
     int counter=1;
@@ -153,6 +152,6 @@ PlayState Gameboard::checkState(int x, int y){
     return InProgress;
 }
 
-Gameboard::nextTurn(){
+Gameboard::nextTurn() {
 
 }

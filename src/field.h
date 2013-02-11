@@ -5,9 +5,8 @@
 #include "stdio.h"
 #include "gameboard.h"
 
-class Field
-{
-public:
+class Field {
+	public:
     int x;
     int y;
     Pawn *pwn;
