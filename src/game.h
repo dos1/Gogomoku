@@ -3,6 +3,9 @@
 
 #include "gameboard.h"
 #include "playstate.h"
+#include "history.h"
+#include "pawn.h"
+#include <ctime>
 
 class Game {
 	public:
@@ -11,10 +14,14 @@ class Game {
         Pawn *who_next;
         Gameboard board;
         History the_game;
+        int moves_done;
 
         Game();
         newGame();
-        revertMove();
-
+        int numberOfMoves();
+        nextTurn();
+        undoTurn();
+        PlayState winning(int who);
+        PlayState drawing();
 }
 #endif //GAME_H

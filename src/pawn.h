@@ -11,12 +11,12 @@ public:
 class WhitePawn :: Pawn
 {
 public:
-    int getCorlor();
+    int getColor();
 };
 
 class BlackPawn :: Pawn
 {
 public:
-    int getCorlor();
+    int getColor();
 };
 #endif // PAWN_H

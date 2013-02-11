@@ -8,7 +8,7 @@ Field::Field(){
     pwn=NULL;
 }
 
-Field::Field(int x, int y, class Gameboard *ptr)
+Field::Field(int x, int y, Gameboard *ptr)
 {
     this->x=x;
     this->y=y;
@@ -16,7 +16,34 @@ Field::Field(int x, int y, class Gameboard *ptr)
     this->pwn=NULL;
 }
 
-clearField::Field()
+Field::initlialize(int x, int y, Gameboard *ptr){
+    this->x=x;
+    this->y=y;
+    this->board=ptr;
+    this->pwn=NULL;
+}
+
+Field::clearField()
 {
     this->pwn=NULL;
+}
+
+int Field::getColor(){
+    return pwn->getColor();
+}
+
+bool Field::isEmpty(){
+    if(pwn==NULL){
+        return TRUE;
+    }
+    return FALSE;
+}
+
+Field::putPawn(){
+    if(pwn==NULL){
+        //pawn=board->whoNext();
+        //board->addHistory(*this);
+        //board->checkState(x,y);
+        //board->nextTurn();
+    }
 }

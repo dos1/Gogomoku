@@ -8,12 +8,15 @@ class Gameboard
 {
 public:
     Field tab[19][19];
-    class Game *game;
+    Game *game;
 
-    Gameboard();
+    Gameboard(Game *ptr);
     cleanBoard();
     makeMove(int x, int y);
-    revertMove(int x, int y);
+    revertMove();
+    addHistory(Field next);
+    PlayState checkState(int x,int y);
+    nextTurn();
 };
 
 #endif // GAMEBOARD_H
