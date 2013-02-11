@@ -1,8 +1,5 @@
 #include "pawn.h"
 
-Pawn::Pawn() {
-}
-
 int WhitePawn::getColor() {
     return 0;
 }

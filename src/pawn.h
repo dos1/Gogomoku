@@ -3,20 +3,24 @@
 
 class Pawn {
 	public:
-    Pawn();
+		Pawn() {}
     virtual int getColor() = 0;
+	protected:
+		~Pawn() {}
 };
-
-typedef class Pawn Pawn;
 
 class WhitePawn : Pawn {
 	public:
-    int getColor();
+		int getColor();
+	protected:
+		~WhitePawn() {}
 };
 
 class BlackPawn : Pawn {
 	public:
-    int getColor();
+		int getColor();
+	protected:
+		~BlackPawn() {}
 };
 
 
