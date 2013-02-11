@@ -30,5 +30,7 @@ class Game {
         void revertLastMove();
         Pawn *whoNext();
         PlayState getState();
+        void stopTimer();
+        time_t gameTime();
 };
 #endif //GAME_H

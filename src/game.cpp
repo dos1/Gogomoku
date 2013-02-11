@@ -56,11 +56,13 @@ PlayState Game::winning(int who){
     }else{
         state_play = WinBlack;
     }
+    stopTimer();
     return state_play;
 }
 
 PlayState Game::drawing(){
     state_play = Draw;
+    stopTimer();
     return state_play;
 }
 
@@ -83,4 +85,16 @@ Pawn *Game::whoNext(){
 
 PlayState Game::getState(){
     return state_play;
+}
+
+void Game::stopTimer(){
+    time_end = time(0);
+}
+
+time_t Game::gameTime(){
+    if(time_end!=0){
+        return (time_end-time_begin);
+    }else{
+        return (time(0)-time_begin);
+    }
 }
