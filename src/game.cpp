@@ -54,3 +54,7 @@ PlayState Game::drawing(){
 void Game::addHistory(Field next){
     the_story.addToHistory(next);
 }
+
+Pawn *Game::whoNext(){
+    return this->who_next;
+}

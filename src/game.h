@@ -25,5 +25,6 @@ class Game {
         PlayState winning(int who);
         PlayState drawing();
         void addHistory(Field next);
+        Pawn *whoNext();
 };
 #endif //GAME_H

@@ -41,7 +41,7 @@ bool Field::isEmpty() {
 
 void Field::putPawn(){
     if(pwn==NULL){
-        //pawn=board->whoNext();
+        this->pwn=board->whoNext();
         board->addHistory(*this);
         //board->checkState(x,y);
         //board->nextTurn();

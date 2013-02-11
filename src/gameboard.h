@@ -18,6 +18,7 @@ class Gameboard {
 		void addHistory(Field next);
 		PlayState checkState(int x,int y);
 		void nextTurn();
+        Pawn* whoNext();
 };
 
 #endif // GAMEBOARD_H
