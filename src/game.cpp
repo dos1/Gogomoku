@@ -60,11 +60,15 @@ void Game::revertLastMove(){
     Field pom;
     if(the_story.notEmpty()){
         pom=the_story.takeFromHistory();
-        //board->revertMove(pom.x,pom.y);
+        board->revertMove(pom.x,pom.y);
     }
     undoTurn();
 }
 
 Pawn *Game::whoNext(){
     return this->who_next;
+}
+
+PlayState Game::getState(){
+    return state_play;
 }

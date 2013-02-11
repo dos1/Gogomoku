@@ -27,5 +27,6 @@ class Game {
         void addHistory(Field next);
         void revertLastMove();
         Pawn *whoNext();
+        PlayState getState();
 };
 #endif //GAME_H
