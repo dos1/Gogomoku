@@ -13,7 +13,7 @@ class Game {
 				PlayState state_play;
         time_t time_begin;
         Pawn *who_next;
-				Gameboard *board;
+                Gameboard *board;
         History the_story;
         int moves_done;
 
@@ -25,6 +25,7 @@ class Game {
         PlayState winning(int who);
         PlayState drawing();
         void addHistory(Field next);
+        void revertLastMove();
         Pawn *whoNext();
 };
 #endif //GAME_H

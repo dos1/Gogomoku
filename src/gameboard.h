@@ -14,7 +14,7 @@ class Gameboard {
     Gameboard(Game *ptr);
 		void cleanBoard();
 		void makeMove(int x, int y);
-		void revertMove();
+        void revertMove(int x, int y);
 		void addHistory(Field next);
 		PlayState checkState(int x,int y);
 		void nextTurn();

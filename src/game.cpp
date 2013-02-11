@@ -1,5 +1,6 @@
 #include "game.h"
 #include "pawn.h"
+#include "gameboard.h"
 
 Game::Game(){
     time_begin = time(0);
@@ -53,6 +54,15 @@ PlayState Game::drawing(){
 
 void Game::addHistory(Field next){
     the_story.addToHistory(next);
+}
+
+void Game::revertLastMove(){
+    Field pom;
+    if(the_story.notEmpty()){
+        pom=the_story.takeFromHistory();
+        //board->revertMove(pom.x,pom.y);
+    }
+    undoTurn();
 }
 
 Pawn *Game::whoNext(){

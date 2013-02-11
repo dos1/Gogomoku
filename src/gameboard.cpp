@@ -24,8 +24,8 @@ void Gameboard::makeMove(int x, int y) {
     tab[x][y].putPawn();
 }
 
-void Gameboard::revertMove() {
-
+void Gameboard::revertMove(int x, int y) {
+    tab[x][y].clearField();
 }
 
 void Gameboard::addHistory(Field next) {
