@@ -1,4 +1,5 @@
 #include "game.h"
+#include "pawn.h"
 
 Game::Game(){
     time_begin = time(0);
@@ -20,7 +21,7 @@ int Game::numberOfMoves(){
 
 void Game::nextTurn(){
     if(who_next->getColor()==0){
-        who_next = (Pawn*) new BlackPawn;
+				who_next = (Pawn*) new BlackPawn;
     }else{
         who_next = (Pawn*) new WhitePawn;
     }

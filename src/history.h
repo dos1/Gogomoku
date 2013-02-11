@@ -3,7 +3,7 @@
 
 #include <QList>
 #include "field.h"
-class Field;
+
 class History {
 	public:
 		QList<Field> hist;

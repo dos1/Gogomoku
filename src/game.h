@@ -3,14 +3,14 @@
 
 #include "playstate.h"
 #include "history.h"
-#include "pawn.h"
-#include "field.h"
 #include <ctime>
 
+class Pawn;
 class Gameboard;
+class Field;
 class Game {
 	public:
-		PlayState state_play;
+				PlayState state_play;
         time_t time_begin;
         Pawn *who_next;
 				Gameboard *board;

@@ -2,9 +2,10 @@
 #define GAMEBOARD_H
 
 #include "field.h"
-#include "game.h"
+#include "playstate.h"
 
-//class Field;
+
+class Game;
 class Gameboard {
 	public:
     Field tab[19][19];

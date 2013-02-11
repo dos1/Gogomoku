@@ -1,6 +1,6 @@
 #include <cstddef>
-#include "field.h"
-
+#include "gameboard.h"
+#include "pawn.h"
 
 Field::Field() {
     x=0;
