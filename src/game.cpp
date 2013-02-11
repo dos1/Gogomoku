@@ -27,15 +27,14 @@ void Game::nextTurn(){
     moves_done++;
 }
 
-/* WTF xD
-void Game::nextTurn(){
+void Game::undoTurn(){
     if(who_next->getColor()==0){
         who_next = (Pawn*) new BlackPawn;
     }else{
         who_next = (Pawn*) new WhitePawn;
     }
     moves_done--;
-} */
+}
 
 PlayState Game::winning(int who){
     if(who==0){
