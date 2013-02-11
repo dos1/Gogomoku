@@ -1,11 +1,10 @@
 #ifndef FIELD_H
 #define FIELD_H
 
-#include "gameboard.h"
-#include "pawn.h"
+//#include "pawn.h"
 #include <cstdlib>
-
-//class Gameboard;
+class Pawn;
+class Gameboard;
 class Field {
 	public:
     int x;
