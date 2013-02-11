@@ -11,6 +11,10 @@ Gameboard::Gameboard(Game *ptr) {
     }
 }
 
+Gameboard::~Gameboard(){
+    cleanBoard();
+}
+
 void Gameboard::cleanBoard() {
     int i=0,j=0;
     for(i=0;i<19;i++){

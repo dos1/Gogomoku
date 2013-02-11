@@ -12,12 +12,14 @@ class Game {
 	public:
 				PlayState state_play;
         time_t time_begin;
+        time_t time_end;
         Pawn *who_next;
                 Gameboard *board;
         History the_story;
         int moves_done;
 
         Game();
+        ~Game();
 				void newGame();
         int numberOfMoves();
 				void nextTurn();

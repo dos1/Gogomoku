@@ -3,17 +3,29 @@
 #include "gameboard.h"
 
 Game::Game(){
-    time_begin = time(0);
-    who_next = (Pawn*) new BlackPawn;
-    state_play = InProgress;
-    moves_done = 0;
+    who_next = NULL;
+    board = new Gameboard(this);
+    this->newGame();
 }
 
 void Game::newGame(){
     time_begin = time(0);
+    time_end = 0;
+    if(who_next!=NULL){
+        free(who_next);
+    }
     who_next = (Pawn*) new BlackPawn;
     state_play = InProgress;
     moves_done = 0;
+    the_story.cleanHistory();
+    board->cleanBoard();
+}
+
+Game::~Game(){
+    if(who_next!=NULL){
+        free(who_next);
+    }
+    delete board;
 }
 
 int Game::numberOfMoves(){

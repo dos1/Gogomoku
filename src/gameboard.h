@@ -12,6 +12,7 @@ class Gameboard {
     Game *game;
 
     Gameboard(Game *ptr);
+    ~Gameboard();
 		void cleanBoard();
 		void makeMove(int x, int y);
         void revertMove(int x, int y);
