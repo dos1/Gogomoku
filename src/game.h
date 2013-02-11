@@ -9,7 +9,7 @@ class Pawn;
 class Gameboard;
 class Field;
 class Game {
-	public:
+    private:
 				PlayState state_play;
         time_t time_begin;
         time_t time_end;
@@ -17,7 +17,7 @@ class Game {
                 Gameboard *board;
         History the_story;
         int moves_done;
-
+    public:
         Game();
         ~Game();
 				void newGame();

@@ -6,14 +6,16 @@
 class Pawn;
 class Gameboard;
 class Field {
-	public:
+    private:
     int x;
     int y;
     Pawn *pwn;
     Gameboard *board;
-
+    public:
 		void putPawn();
 		void clearField();
+        int getX();
+        int getY();
     bool isEmpty();
     int getColor();
     Field();

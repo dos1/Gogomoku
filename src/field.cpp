@@ -16,6 +16,14 @@ Field::Field(int x, int y, Gameboard *ptr) {
     this->pwn=NULL;
 }
 
+int Field::getX(){
+    return x;
+}
+
+int Field::getY(){
+    return y;
+}
+
 void Field::initialize(int x, int y, Gameboard *ptr) {
     this->x=x;
     this->y=y;

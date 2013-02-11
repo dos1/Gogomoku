@@ -5,9 +5,9 @@
 #include "field.h"
 
 class History {
-	public:
+    private:
 		QList<Field> hist;
-
+    public:
     History();
         void addToHistory(Field next);
 		Field takeFromHistory();

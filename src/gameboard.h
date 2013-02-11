@@ -7,10 +7,10 @@
 
 class Game;
 class Gameboard {
-	public:
+    private:
     Field tab[19][19];
     Game *game;
-
+public:
     Gameboard(Game *ptr);
     ~Gameboard();
 		void cleanBoard();
