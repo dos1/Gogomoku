@@ -24,6 +24,7 @@ void Field::initialize(int x, int y, Gameboard *ptr) {
 }
 
 void Field::clearField() {
+    free(this->pwn);
     this->pwn=NULL;
 }
 
@@ -41,7 +42,7 @@ bool Field::isEmpty() {
 void Field::putPawn(){
     if(pwn==NULL){
         //pawn=board->whoNext();
-        //board->addHistory(*this);
+        board->addHistory(*this);
         //board->checkState(x,y);
         //board->nextTurn();
     }

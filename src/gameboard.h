@@ -1,9 +1,10 @@
 #ifndef GAMEBOARD_H
 #define GAMEBOARD_H
 
-#include "field.h"
+//#include "field.h"
 #include "game.h"
 
+//class Field;
 class Gameboard {
 	public:
     Field tab[19][19];
