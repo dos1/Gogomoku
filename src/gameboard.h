@@ -10,12 +10,12 @@ class Gameboard {
     Game *game;
 
     Gameboard(Game *ptr);
-    cleanBoard();
-    makeMove(int x, int y);
-    revertMove();
-    addHistory(Field next);
-    PlayState checkState(int x,int y);
-    nextTurn();
+		void cleanBoard();
+		void makeMove(int x, int y);
+		void revertMove();
+		void addHistory(Field next);
+		PlayState checkState(int x,int y);
+		void nextTurn();
 };
 
 #endif // GAMEBOARD_H

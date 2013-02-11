@@ -7,7 +7,7 @@ Game::Game(){
     moves_done = 0;
 }
 
-Game::newGame(){
+void Game::newGame(){
     time_begin = time(0);
     who_next = (Pawn*) new BlackPawn;
     state_play = InProgress;
@@ -18,7 +18,7 @@ int Game::numberOfMoves(){
     return moves_done;
 }
 
-Game::nextTurn(){
+void Game::nextTurn(){
     if(who_next->getColor()==0){
         who_next = (Pawn*) new BlackPawn;
     }else{
@@ -27,14 +27,15 @@ Game::nextTurn(){
     moves_done++;
 }
 
-Game::nextTurn(){
+/* WTF xD
+void Game::nextTurn(){
     if(who_next->getColor()==0){
         who_next = (Pawn*) new BlackPawn;
     }else{
         who_next = (Pawn*) new WhitePawn;
     }
     moves_done--;
-}
+} */
 
 PlayState Game::winning(int who){
     if(who==0){

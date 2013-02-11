@@ -10,6 +10,7 @@ SET(gogomoku_SRCS
 	gameboard.cpp
 	history.cpp
 	pawn.cpp
+	game.cpp
 )
 
 qt4_add_resources(gogomoku_RCC_SRCS gogomoku.qrc)

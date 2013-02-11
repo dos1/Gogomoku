@@ -10,7 +10,7 @@ Gameboard::Gameboard(Game *ptr) {
     }
 }
 
-Gameboard::cleanBoard() {
+void Gameboard::cleanBoard() {
     int i=0,j=0;
     for(i=0;i<19;i++){
         for(j=0;j<19;j++){
@@ -19,15 +19,15 @@ Gameboard::cleanBoard() {
     }
 }
 
-Gameboard::makeMove(int x, int y) {
+void Gameboard::makeMove(int x, int y) {
     tab[x][y].putPawn();
 }
 
-Gameboard::revertMove() {
+void Gameboard::revertMove() {
 
 }
 
-Gameboard::addHistory(Field next) {
+void Gameboard::addHistory(Field next) {
 
 }
 
@@ -100,7 +100,7 @@ PlayState Gameboard::checkState(int x, int y) {
     }
     i=x-1;
     j=y-1;
-    while((i>(x-5)) && (j>(y-5)) (i>=0) && (j>=0)){
+		while((i>(x-5)) && (j>(y-5)) && (i>=0) && (j>=0)){
         if(!(tab[i][j].isEmpty()) && (color==tab[i][j].getColor())){
             counter++;
             i--;
@@ -129,7 +129,7 @@ PlayState Gameboard::checkState(int x, int y) {
     }
     i=x-1;
     j=y+1;
-    while((i>(x-5)) && (j<(y+5)) (i>=0) && (j<19)){
+		while((i>(x-5)) && (j<(y+5)) && (i>=0) && (j<19)){
         if(!(tab[i][j].isEmpty()) && (color==tab[i][j].getColor())){
             counter++;
             i--;
@@ -144,7 +144,7 @@ PlayState Gameboard::checkState(int x, int y) {
     }
 
     //boardfull ?
-    if(game->moves_done()==(19*19)){
+		if(game->moves_done==(19*19)){
         return game->drawing();
     }
 
@@ -152,6 +152,6 @@ PlayState Gameboard::checkState(int x, int y) {
     return InProgress;
 }
 
-Gameboard::nextTurn() {
+void Gameboard::nextTurn() {
 
 }

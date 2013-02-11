@@ -2,15 +2,15 @@
 #define HISTORY_H
 
 #include <QList>
-#include "pawn.h"
+#include "field.h"
 
-class Historym{
+class History {
 	public:
-    QList<Field> hist;
+		QList<Field> hist;
 
     History();
-    addToHistory(Field);
-    Field takeFromHistory();
+		void addToHistory(Field);
+		Field takeFromHistory();
 };
 
 #endif // HISTORY_H

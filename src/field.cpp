@@ -1,3 +1,4 @@
+#include <cstddef>
 #include "field.h"
 
 
@@ -15,14 +16,14 @@ Field::Field(int x, int y, Gameboard *ptr) {
     this->pwn=NULL;
 }
 
-Field::initlialize(int x, int y, Gameboard *ptr) {
+void Field::initialize(int x, int y, Gameboard *ptr) {
     this->x=x;
     this->y=y;
     this->board=ptr;
     this->pwn=NULL;
 }
 
-Field::clearField() {
+void Field::clearField() {
     this->pwn=NULL;
 }
 
@@ -37,7 +38,7 @@ bool Field::isEmpty() {
 		return false;
 }
 
-Field::putPawn(){
+void Field::putPawn(){
     if(pwn==NULL){
         //pawn=board->whoNext();
         //board->addHistory(*this);

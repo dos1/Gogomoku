@@ -2,9 +2,8 @@
 #define FIELD_H
 
 #include "pawn.h"
-#include "stdio.h"
-#include "gameboard.h"
 
+class Gameboard;
 class Field {
 	public:
     int x;
@@ -12,14 +11,13 @@ class Field {
     Pawn *pwn;
     Gameboard *board;
 
-    putPawn();
-    clearField();
+		void putPawn();
+		void clearField();
     bool isEmpty();
     int getColor();
     Field();
     Field(int x, int y, Gameboard *ptr);
-    initialize(int x, int y, Gameboard *ptr);
-    clearField();
+		void initialize(int x, int y, Gameboard *ptr);
 };
 
 #endif // FIELD_H
