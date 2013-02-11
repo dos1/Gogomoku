@@ -1,4 +1,5 @@
 #include "gameboard.h"
+#include "game.h"
 
 Gameboard::Gameboard(Game *ptr) {
     this->game=ptr;
