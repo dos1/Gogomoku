@@ -4,6 +4,7 @@
 #include "playstate.h"
 #include "history.h"
 #include "pawn.h"
+#include "field.h"
 #include <ctime>
 
 class Gameboard;
@@ -13,7 +14,7 @@ class Game {
         time_t time_begin;
         Pawn *who_next;
 				Gameboard *board;
-        History the_game;
+        History the_story;
         int moves_done;
 
         Game();
@@ -23,5 +24,6 @@ class Game {
 				void undoTurn();
         PlayState winning(int who);
         PlayState drawing();
+        void addHistory(Field next);
 };
 #endif //GAME_H

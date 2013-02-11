@@ -28,7 +28,7 @@ void Gameboard::revertMove() {
 }
 
 void Gameboard::addHistory(Field next) {
-
+    game->addHistory(next);
 }
 
 PlayState Gameboard::checkState(int x, int y) {

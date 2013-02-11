@@ -9,7 +9,7 @@ class History {
 		QList<Field> hist;
 
     History();
-		void addToHistory(Field);
+        void addToHistory(Field next);
 		Field takeFromHistory();
 };
 

@@ -49,3 +49,7 @@ PlayState Game::drawing(){
     state_play = Draw;
     return state_play;
 }
+
+void addHistory(Field next){
+    the_story->addToHistory(next);
+}
