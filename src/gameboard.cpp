@@ -154,7 +154,7 @@ PlayState Gameboard::checkState(int x, int y) {
 }
 
 void Gameboard::nextTurn() {
-
+    game->nextTurn();
 }
 
 Pawn *Gameboard::whoNext(){

@@ -43,7 +43,7 @@ void Field::putPawn(){
     if(pwn==NULL){
         this->pwn=board->whoNext();
         board->addHistory(*this);
-        //board->checkState(x,y);
+        board->checkState(x,y);
         //board->nextTurn();
     }
 }
