@@ -6,7 +6,7 @@ Gameboard::Gameboard(Game *ptr) {
     int i=0,j=0;
     for(i=0;i<19;i++){
         for(j=0;j<19;j++){
-            tab[i][j].initialize(j,i,this);
+						tab[i][j].initialize(i,j,this);
         }
     }
 }
@@ -25,7 +25,7 @@ void Gameboard::cleanBoard() {
 }
 
 void Gameboard::makeMove(int x, int y) {
-    tab[x][y].putPawn();
+		tab[x][y].putPawn();
 }
 
 void Gameboard::revertMove(int x, int y) {
