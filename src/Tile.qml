@@ -4,7 +4,7 @@ Item {
     id: tile
     width: 80
     height: 80
-    property int state: 1
+    property int state: gameData.nextColor+1
 
     // Tile background rectangle
     Image {
@@ -27,23 +27,46 @@ Item {
     }
     // Tile Button
     Image {
+        id: image
         anchors.fill: parent
         fillMode: Image.PreserveAspectFit
         smooth: true
-        source: {
-            if (tile.state===1)
-                "images/tile_button1.png"
-            else if (tile.state===2)
-                "images/tile_button2.png"
-            else
-                ""
-        }
+        source: ""
+
         opacity: tile.state!==0
         Behavior on opacity {
             //enabled: gameData.moves != 0
-            NumberAnimation {
-                properties: "opacity"
-                duration: 500
+            SequentialAnimation {
+                ScriptAction {
+                    script: explosion.explode()
+                }
+                NumberAnimation {
+                    property: "opacity"
+                    to: 0
+                    duration: 100
+                }
+                ScriptAction {
+                    script: {
+                        if (tile.state===1)
+                            image.source="images/tile_button2.png"
+                        else if (tile.state===2)
+                            image.source="images/tile_button1.png"
+                    }
+                }
+
+                NumberAnimation {
+                    properties: "opacity"
+                    duration: 250
+                }
+
+                ScriptAction {
+                    script: {
+                        if (tile.state===1)
+                            image.source="images/tile_button2.png"
+                        else if (tile.state===2)
+                            image.source="images/tile_button1.png"
+                    }
+                } // just in case
             }
         }
     }
@@ -51,10 +74,9 @@ Item {
         anchors.fill: parent
         enabled: tile.state===0
         onClicked: {
-            parent.parent.lol=parent.parent.lol+1
-            tile.state=(parent.parent.lol%2)+1; //Math.random()%2+1
-            explosion.explode()
-            //gameData.flip(index)
+            //parent.parent.lol=parent.parent.lol+1
+            //tile.state=(parent.parent.lol%2)+1; //Math.random()%2+1
+            gameData.nextTurn()
         }
     }
     Explosion {

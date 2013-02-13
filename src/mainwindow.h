@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <KMainWindow>
+#include "game.h"
 
 namespace Ui {
 	class MainWindow;
@@ -16,6 +17,7 @@ class MainWindow : public KMainWindow {
 		
 	private:
 		Ui::MainWindow *ui;
+		Game game;
 };
 
 #endif // MAINWINDOW_H

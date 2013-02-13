@@ -161,6 +161,6 @@ void Gameboard::nextTurn() {
     game->nextTurn();
 }
 
-Pawn *Gameboard::whoNext(){
-    return game->whoNext();
+Pawn* Gameboard::whoNext(){
+		return game->getNextPawn();
 }

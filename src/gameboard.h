@@ -19,7 +19,7 @@ public:
 		void addHistory(Field next);
 		PlayState checkState(int x,int y);
 		void nextTurn();
-        Pawn* whoNext();
+		Pawn* whoNext();
 };
 
 #endif // GAMEBOARD_H

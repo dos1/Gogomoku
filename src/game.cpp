@@ -1,8 +1,9 @@
 #include "game.h"
 #include "pawn.h"
 #include "gameboard.h"
+#include <QObject>
 
-Game::Game(){
+Game::Game(QObject *parent) : QObject(parent) {
     who_next = NULL;
     board = new Gameboard(this);
     this->newGame();
@@ -19,6 +20,7 @@ void Game::newGame(){
     moves_done = 0;
     the_story.cleanHistory();
     board->cleanBoard();
+		newGameStarted();
 }
 
 Game::~Game(){
@@ -33,12 +35,13 @@ int Game::numberOfMoves(){
 }
 
 void Game::nextTurn(){
-    if(who_next->getColor()==0){
+		if(who_next->getColor()==0){
 				who_next = (Pawn*) new BlackPawn;
-    }else{
-        who_next = (Pawn*) new WhitePawn;
-    }
-    moves_done++;
+		}else{
+				who_next = (Pawn*) new WhitePawn;
+		}
+		moves_done++;
+		playerChanged();
 }
 
 void Game::undoTurn(){
@@ -48,6 +51,7 @@ void Game::undoTurn(){
         who_next = (Pawn*) new WhitePawn;
     }
     moves_done--;
+		playerChanged();
 }
 
 PlayState Game::winning(int who){
@@ -75,12 +79,17 @@ void Game::revertLastMove(){
     if(the_story.notEmpty()){
         pom=the_story.takeFromHistory();
         board->revertMove(pom.getX(),pom.getY());
-    }
-    undoTurn();
+				boardChanged();
+		}
+		undoTurn();
 }
 
-Pawn *Game::whoNext(){
-    return this->who_next;
+Pawn *Game::getNextPawn(){
+		return this->who_next;
+}
+
+int Game::getNextColor(){
+		return this->who_next->getColor();
 }
 
 PlayState Game::getState(){
