@@ -11,30 +11,30 @@ Item {
     }
 
     // *** Game View Hider ***
-        Rectangle {
-            id: gameViewHider
-            anchors.fill: parent
-            color: "black"
-            opacity: 0.7
-            states: [
-                    State {
-                    name: "hide"
-                    when: gameViewHider.color != "black" //lol
-                    PropertyChanges {
-                        target: gameViewHider
-                        opacity: 0
-                    }
-                }
-                ]
-                transitions: Transition {
-                    NumberAnimation {
-                        properties: "opacity"
-                        duration: 400
-                    }
+    Rectangle {
+        id: gameViewHider
+        anchors.fill: parent
+        color: "black"
+        opacity: 0.7
+        states: [
+            State {
+                name: "hide"
+                when: gameViewHider.color != "black" //lol
+                PropertyChanges {
+                    target: gameViewHider
+                    opacity: 0
                 }
             }
-        // *** Main Menu panel ***
-        /* MenuPanel {
+        ]
+        transitions: Transition {
+            NumberAnimation {
+                properties: "opacity"
+                duration: 400
+            }
+        }
+    }
+    // *** Main Menu panel ***
+    /* MenuPanel {
             id: menuPanel
         } */
 }

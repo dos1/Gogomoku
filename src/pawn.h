@@ -4,7 +4,7 @@
 class Pawn {
 	public:
 		Pawn() {}
-    virtual int getColor() = 0;
+		virtual int getColor() = 0;
 	protected:
 		~Pawn() {}
 };

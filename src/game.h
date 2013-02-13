@@ -10,7 +10,7 @@ class Pawn;
 class Gameboard;
 class Field;
 class Game : public QObject {
-	Q_OBJECT
+		Q_OBJECT
 	private:
 		PlayState state_play;
 		time_t time_begin;

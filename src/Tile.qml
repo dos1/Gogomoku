@@ -18,7 +18,7 @@ Item {
             //if (modelData.highlighted)
             //    return 1.0
             //else
-                return 0.8
+            return 0.8
         }
         Behavior on opacity {
             //enabled: gameData.moves != 0
@@ -30,12 +30,12 @@ Item {
     }
 
     function updateTile() {
-                  if (tile.state===1)
-                      image.source="images/tile_button2.png"
-                  else if (tile.state===2)
-                      image.source="images/tile_button1.png"
-                  else
-                      image.source=""
+        if (tile.state===1)
+            image.source="images/tile_button2.png"
+        else if (tile.state===2)
+            image.source="images/tile_button1.png"
+        else
+            image.source=""
     }
 
 
@@ -78,7 +78,6 @@ Item {
             //parent.parent.lol=parent.parent.lol+1
             explosion.explode()
             tile.state=gameData.nextColor+1
-            console.log(~~(tile.number/19),tile.number%19)
             gameData.makeMove(tile.number/19,tile.number%19)
         }
     }

@@ -5,15 +5,15 @@ Item {
     anchors.fill: parent
 
     Flickable {
-            id: boardFlickable
-            anchors.fill: parent
-            contentWidth: boardGrid.width/2
-            contentHeight: boardGrid.height/2
-            maximumFlickVelocity: 1000
-            flickDeceleration: 2000
+        id: boardFlickable
+        anchors.fill: parent
+        contentWidth: boardGrid.width/2
+        contentHeight: boardGrid.height/2
+        maximumFlickVelocity: 1000
+        flickDeceleration: 2000
 
-            // This implements "Fluid" 3D tilting
-            /*transform: [
+        // This implements "Fluid" 3D tilting
+        /*transform: [
             Rotation {
                 origin.x: gameView.width / 2
                 origin.y: gameView.height / 2
@@ -47,12 +47,12 @@ Item {
                     width: (gameView.width*2-3*18)/19 < 64 ? 64 :(gameView.width*2-3*18)/19
                     height: width
                     number: modelData
-                  //anchors.fill: parent
+                    //anchors.fill: parent
                 }
             }
         }
 
-}
+    }
     ScrollBar {
         flickable: boardFlickable
         vertical: true

@@ -6,20 +6,20 @@
 class Pawn;
 class Gameboard;
 class Field {
-    private:
-    int x;
-    int y;
-    Pawn *pwn;
-    Gameboard *board;
-    public:
+	private:
+		int x;
+		int y;
+		Pawn *pwn;
+		Gameboard *board;
+	public:
 		void putPawn();
 		void clearField();
-        int getX();
-        int getY();
-    bool isEmpty();
-    int getColor();
-    Field();
-    Field(int x, int y, Gameboard *ptr);
+		int getX();
+		int getY();
+		bool isEmpty();
+		int getColor();
+		Field();
+		Field(int x, int y, Gameboard *ptr);
 		void initialize(int x, int y, Gameboard *ptr);
 };
 

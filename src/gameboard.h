@@ -7,14 +7,14 @@
 
 class Game;
 class Gameboard {
-    private:
-    Game *game;
-public:
-    Gameboard(Game *ptr);
-    ~Gameboard();
+	private:
+		Game *game;
+	public:
+		Gameboard(Game *ptr);
+		~Gameboard();
 		void cleanBoard();
 		void makeMove(int x, int y);
-        void revertMove(int x, int y);
+		void revertMove(int x, int y);
 		void addHistory(Field next);
 		PlayState checkState(int x,int y);
 		//void nextTurn();

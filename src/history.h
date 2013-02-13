@@ -5,14 +5,14 @@
 #include "field.h"
 
 class History {
-    private:
+	private:
 		QList<Field> hist;
-    public:
-    History();
-        void addToHistory(Field next);
+	public:
+		History();
+		void addToHistory(Field next);
 		Field takeFromHistory();
-        void cleanHistory();
-        bool notEmpty();
+		void cleanHistory();
+		bool notEmpty();
 };
 
 #endif // HISTORY_H
