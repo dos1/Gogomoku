@@ -50,9 +50,6 @@ Item {
         Behavior on opacity {
             //enabled: gameData.moves != 0
             SequentialAnimation {
-                ScriptAction {
-                    script: explosion.explode()
-                }
                 NumberAnimation {
                     property: "opacity"
                     to: 0
@@ -78,6 +75,7 @@ Item {
         enabled: tile.state===0
         onClicked: {
             //parent.parent.lol=parent.parent.lol+1
+            explosion.explode()
             tile.state=gameData.nextColor+1
             gameData.makeMove(1,1)
         }
