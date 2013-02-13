@@ -6,7 +6,7 @@ Gameboard::Gameboard(Game *ptr) {
     int i=0,j=0;
     for(i=0;i<19;i++){
         for(j=0;j<19;j++){
-						tab[i][j].initialize(i,j,this);
+            tab[i][j].initialize(i,j,this);
         }
     }
 }
