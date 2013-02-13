@@ -22,6 +22,7 @@ void Game::newGame(){
 	the_story.cleanHistory();
 	board->cleanBoard();
 	newGameStarted();
+	stateChanged();
 }
 
 Game::~Game(){
@@ -62,12 +63,14 @@ PlayState Game::winning(int who){
 		state_play = WinBlack;
 	}
 	stopTimer();
+	stateChanged();
 	return state_play;
 }
 
 PlayState Game::drawing(){
 	state_play = Draw;
 	stopTimer();
+	stateChanged();
 	return state_play;
 }
 

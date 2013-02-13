@@ -16,10 +16,14 @@ Item {
         anchors.fill: parent
         color: "black"
         opacity: 0.7
+        MouseArea {
+            anchors.fill: parent
+            enabled: gameViewHider.opacity
+        }
         states: [
             State {
                 name: "hide"
-                when: gameViewHider.color != "black" //lol
+                when: gameData.state===0
                 PropertyChanges {
                     target: gameViewHider
                     opacity: 0

@@ -29,12 +29,14 @@ class Game : public QObject {
 		PlayState drawing();
 		void addHistory(Field next);
 
-		Q_PROPERTY(int nextColor READ getNextColor NOTIFY playerChanged);
+		Q_PROPERTY(int nextColor READ getNextColor NOTIFY playerChanged)
 		int getNextColor();
 
 		Pawn* getNextPawn();
 
+		Q_PROPERTY(int state READ getState NOTIFY stateChanged)
 		PlayState getState();
+
 		void stopTimer();
 		time_t gameTime();
 		Gameboard *getBoard();
@@ -44,7 +46,8 @@ class Game : public QObject {
 		void makeMove(int x, int y);
 	signals:
 		void newGameStarted();
+		void stateChanged();
 		void playerChanged();
-		void boardChanged(); //?
+		void boardChanged();
 };
 #endif //GAME_H

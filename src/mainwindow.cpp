@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "game.h"
 #include "pawn.h"
+#include "playstate.h"
 #include <QtDeclarative>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -11,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->setupUi(this);
 
 	// Register Tile to be available in QML
-	//qmlRegisterType<Tile>("gameCore", 1, 0, "Tile");
+	//qmlRegisterType<PlayState>("gameCore", 1, 0, "PlayState");
 
 	// Setup context
 	QDeclarativeContext *m_context;
