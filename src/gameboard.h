@@ -8,7 +8,6 @@
 class Game;
 class Gameboard {
     private:
-    Field tab[19][19];
     Game *game;
 public:
     Gameboard(Game *ptr);
@@ -20,6 +19,7 @@ public:
 		PlayState checkState(int x,int y);
 		//void nextTurn();
 		Pawn* whoNext();
+		Field tab[19][19];
 };
 
 #endif // GAMEBOARD_H

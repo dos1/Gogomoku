@@ -46,6 +46,7 @@ Item {
                     //width: modelData
                     width: (gameView.width*2-3*18)/19 < 64 ? 64 :(gameView.width*2-3*18)/19
                     height: width
+                    number: modelData
                   //anchors.fill: parent
                 }
             }

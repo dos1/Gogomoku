@@ -5,6 +5,7 @@ Item {
     width: 80
     height: 80
     property int state: gameData.nextColor+1
+    property int number: 0
 
     Component.onCompleted: updateTile()
 
@@ -77,7 +78,8 @@ Item {
             //parent.parent.lol=parent.parent.lol+1
             explosion.explode()
             tile.state=gameData.nextColor+1
-            gameData.makeMove(1,1)
+            console.log(~~(tile.number/19),tile.number%19)
+            gameData.makeMove(tile.number/19,tile.number%19)
         }
     }
     Explosion {
