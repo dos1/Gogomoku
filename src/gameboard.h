@@ -18,7 +18,7 @@ public:
         void revertMove(int x, int y);
 		void addHistory(Field next);
 		PlayState checkState(int x,int y);
-		void nextTurn();
+		//void nextTurn();
 		Pawn* whoNext();
 };
 

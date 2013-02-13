@@ -16,7 +16,8 @@ void Game::newGame(){
         free(who_next);
     }
     who_next = (Pawn*) new BlackPawn;
-    state_play = InProgress;
+		playerChanged();
+		state_play = InProgress;
     moves_done = 0;
     the_story.cleanHistory();
     board->cleanBoard();
@@ -68,6 +69,11 @@ PlayState Game::drawing(){
     state_play = Draw;
     stopTimer();
     return state_play;
+}
+
+void Game::makeMove(int x, int y) {
+	board->makeMove(x,y);
+	nextTurn();
 }
 
 void Game::addHistory(Field next){

@@ -157,10 +157,6 @@ PlayState Gameboard::checkState(int x, int y) {
     return InProgress;
 }
 
-void Gameboard::nextTurn() {
-    game->nextTurn();
-}
-
 Pawn* Gameboard::whoNext(){
 		return game->getNextPawn();
 }

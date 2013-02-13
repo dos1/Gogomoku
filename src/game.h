@@ -19,6 +19,8 @@ class Game : public QObject {
 		Gameboard *board;
 		History the_story;
 		int moves_done;
+		void nextTurn();
+		void undoTurn();
 	public:
 		Game(QObject *parent=0);
 		~Game();
@@ -38,9 +40,8 @@ class Game : public QObject {
 		Gameboard *getBoard();
 	public slots:
 		void newGame();
-		void nextTurn();
-		void undoTurn();
 		void revertLastMove();
+		void makeMove(int x, int y);
 	signals:
 		void newGameStarted();
 		void playerChanged();

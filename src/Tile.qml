@@ -6,6 +6,8 @@ Item {
     height: 80
     property int state: gameData.nextColor+1
 
+    Component.onCompleted: updateTile()
+
     // Tile background rectangle
     Image {
         anchors.fill: parent
@@ -25,6 +27,17 @@ Item {
             }
         }
     }
+
+    function updateTile() {
+                  if (tile.state===1)
+                      image.source="images/tile_button2.png"
+                  else if (tile.state===2)
+                      image.source="images/tile_button1.png"
+                  else
+                      image.source=""
+    }
+
+
     // Tile Button
     Image {
         id: image
@@ -46,12 +59,7 @@ Item {
                     duration: 100
                 }
                 ScriptAction {
-                    script: {
-                        if (tile.state===1)
-                            image.source="images/tile_button2.png"
-                        else if (tile.state===2)
-                            image.source="images/tile_button1.png"
-                    }
+                    script: updateTile()
                 }
 
                 NumberAnimation {
@@ -60,12 +68,7 @@ Item {
                 }
 
                 ScriptAction {
-                    script: {
-                        if (tile.state===1)
-                            image.source="images/tile_button2.png"
-                        else if (tile.state===2)
-                            image.source="images/tile_button1.png"
-                    }
+                    script: updateTile()
                 } // just in case
             }
         }
@@ -75,8 +78,8 @@ Item {
         enabled: tile.state===0
         onClicked: {
             //parent.parent.lol=parent.parent.lol+1
-            //tile.state=(parent.parent.lol%2)+1; //Math.random()%2+1
-            gameData.nextTurn()
+            tile.state=gameData.nextColor+1
+            gameData.makeMove(1,1)
         }
     }
     Explosion {

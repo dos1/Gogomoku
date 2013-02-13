@@ -31,11 +31,6 @@
         <property name="resizeMode">
          <enum>QDeclarativeView::SizeRootObjectToView</enum>
         </property>
-        <property name="source">
-         <url>
-          <string>qrc:/qml/table.qml</string>
-         </url>
-        </property>
        </widget>
       </item>
       <item>
@@ -93,11 +88,6 @@
              </property>
              <property name="resizeMode">
               <enum>QDeclarativeView::SizeRootObjectToView</enum>
-             </property>
-             <property name="source">
-              <url>
-               <string>qrc:/qml/Tile.qml</string>
-              </url>
              </property>
             </widget>
            </item>

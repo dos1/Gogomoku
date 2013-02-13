@@ -52,6 +52,5 @@ void Field::putPawn(){
         this->pwn=board->whoNext();
         board->addHistory(*this);
         board->checkState(x,y);
-        board->nextTurn();
     }
 }

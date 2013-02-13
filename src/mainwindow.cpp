@@ -22,6 +22,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	m_context = ui->declarativeView_2->rootContext();
 	m_context->setContextProperty("gameData", &game);
 
+	ui->declarativeView->setSource(QUrl("qrc:/qml/table.qml"));
+	ui->declarativeView_2->setSource(QUrl("qrc:/qml/Tile.qml"));
+
+	game.newGame();
 	show();
 }
 
