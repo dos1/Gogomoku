@@ -79,8 +79,8 @@ public class Game {
 		if (the_story.notEmpty()) {
 			pom = the_story.takeFromHistory();
 			board.revertMove(pom.getX(), pom.getY());
+			undoTurn();
 		}
-		undoTurn();
 	}
 	public Pawn whoNext() {
 		return who_next;

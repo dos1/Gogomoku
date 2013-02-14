@@ -38,7 +38,6 @@ public class Main {
 				System.out.println();
 			}
 			char pawn;
-			System.out.println(game.getNextPlayer());
 			if (game.getNextPlayer()==0) pawn='O'; else pawn='#';
 			System.out.print("["+pawn+"] Type coordinates, \"undo\" or \"new\": ");
 			
