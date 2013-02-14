@@ -65,6 +65,7 @@ PlayState Game::winning(int who){
 	}
 	stopTimer();
 	stateChanged();
+	undoEnabled(false);
 	return state_play;
 }
 
@@ -72,6 +73,7 @@ PlayState Game::drawing(){
 	state_play = Draw;
 	stopTimer();
 	stateChanged();
+	undoEnabled(false);
 	return state_play;
 }
 
