@@ -72,8 +72,12 @@ PlayState Game::drawing(){
 }
 
 void Game::makeMove(int x, int y) {
-	board->makeMove(x,y);
-	nextTurn();
+    try{
+        board->makeMove(x,y);
+        nextTurn();
+    }catch (...){
+
+    }
 }
 
 void Game::addHistory(Field next){

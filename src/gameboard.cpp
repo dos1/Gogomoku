@@ -25,7 +25,15 @@ void Gameboard::cleanBoard() {
 }
 
 void Gameboard::makeMove(int x, int y) {
-	tab[x][y].putPawn();
+    if(x<0 || y<0 || x>18 || y>18){
+        throw "Out of bounds";
+    }
+
+    try{
+        tab[x][y].putPawn();
+    }catch (const char* msg){
+        throw msg;
+    }
 }
 
 void Gameboard::revertMove(int x, int y) {
