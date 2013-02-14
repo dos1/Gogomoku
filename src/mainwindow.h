@@ -15,6 +15,11 @@ class MainWindow : public KMainWindow {
 		explicit MainWindow(QWidget *parent = 0);
 		~MainWindow();
 		
+	private slots:
+		void on_pushButton_pressed();
+
+		void on_pushButton_2_pressed();
+
 	private:
 		Ui::MainWindow *ui;
 		Game game;

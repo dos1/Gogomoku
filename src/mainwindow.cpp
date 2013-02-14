@@ -33,3 +33,13 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow() {
 	delete ui;
 }
+
+void MainWindow::on_pushButton_pressed()
+{
+		game.revertLastMove();
+}
+
+void MainWindow::on_pushButton_2_pressed()
+{
+	game.newGame();
+}

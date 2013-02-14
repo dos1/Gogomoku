@@ -53,7 +53,7 @@ Item {
         source: ""
 
         signal clear()
-        onClear: { tile.state=0; explosion.off(); updateTile(); }
+        onClear: { tile.state=0; tile.parent.highlighted=-1; explosion.off(); updateTile(); }
 
         opacity: tile.state!==0
         Behavior on opacity {
@@ -97,7 +97,7 @@ Item {
 
     Component.onCompleted: {
         updateTile();
-        if (!tile.ro) gameData.newGameStarted.connect(image.clear)
+        if (!tile.ro) { gameData.newGameStarted.connect(image.clear) }
     }
 
 }
