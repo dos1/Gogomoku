@@ -18,7 +18,7 @@ Item {
         opacity: 0.7
         MouseArea {
             anchors.fill: parent
-            enabled: gameViewHider.opacity
+            enabled: gameData.state
         }
         states: [
             State {

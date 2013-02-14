@@ -9,6 +9,13 @@ Item {
         //particles.count=50
     }
 
+    function on() {
+        particles.count=15
+    }
+    function off() {
+        particles.count=0
+    }
+
     Particles {
         id: particles
         width: parent.width / 2

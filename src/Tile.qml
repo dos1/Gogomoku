@@ -15,10 +15,15 @@ Item {
         smooth: true
         source: "images/tile_background.png"
         opacity: {
-            //if (modelData.highlighted)
-            //    return 1.0
-            //else
-            return 0.8
+            if (!tile.parent) return 1.0;
+            if (tile.number===tile.parent.highlighted) {
+                explosion.on()
+                return 1.0
+            }
+            else {
+                explosion.off()
+                return 0.75
+            }
         }
         Behavior on opacity {
             //enabled: gameData.moves != 0
@@ -75,7 +80,7 @@ Item {
         anchors.fill: parent
         enabled: tile.state===0
         onClicked: {
-            //parent.parent.lol=parent.parent.lol+1
+            parent.parent.highlighted=tile.number
             explosion.explode()
             tile.state=gameData.nextColor+1
             gameData.makeMove(tile.number/19,tile.number%19)

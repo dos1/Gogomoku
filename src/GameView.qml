@@ -37,7 +37,7 @@ Item {
             columns: 19
             spacing: 3
             transform: Scale { xScale: 0.5; yScale: 0.5}
-            property int lol: 0
+            property int highlighted: -1;
 
             Repeater {
                 model: 19*19
