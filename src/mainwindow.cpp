@@ -4,6 +4,7 @@
 #include "pawn.h"
 #include "playstate.h"
 #include <QtDeclarative>
+#include <KMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
 	KMainWindow(parent),
@@ -35,7 +36,11 @@ MainWindow::~MainWindow() {
 
 void MainWindow::on_pushButton_pressed()
 {
+	try {
 		game.revertLastMove();
+	} catch (History::EmptyHistory *err) {
+		KMessageBox::error(this, "Cannot undo!", "Undo");
+	}
 }
 
 void MainWindow::on_pushButton_2_pressed()

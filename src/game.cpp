@@ -72,14 +72,14 @@ PlayState Game::drawing(){
 }
 
 void Game::makeMove(int x, int y) {
-    try{
-        board->makeMove(x,y);
-        nextTurn();
-    }catch (Gameboard::MoveOutOfBounds *err){
-        throw err;
-    }catch (Field::UnallowedMove *err){
-        throw err;
-    }
+	try{
+		board->makeMove(x,y);
+		nextTurn();
+	} catch (Gameboard::MoveOutOfBounds *err) {
+		//throw err;
+	} catch (Field::UnallowedMove *err) {
+		//throw err;
+	}
 }
 
 void Game::addHistory(Field next){
@@ -89,14 +89,14 @@ void Game::addHistory(Field next){
 
 void Game::revertLastMove(){
 	Field pom;
-    try{
+	try {
 		pom=the_story.takeFromHistory();
 		board->revertMove(pom.getX(),pom.getY());
 		tileCleared(pom.getX()*19+pom.getY());
 		undoTurn();
-    }catch(History::EmptyHistory *err){
-        throw err;
-    }
+	} catch (History::EmptyHistory *err) {
+		throw err;
+	}
 
 	if(!the_story.notEmpty()){
 		undoEnabled(false);
