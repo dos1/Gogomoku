@@ -13,3 +13,4 @@
 
 build
 CMakeLists.txt.user
+*.class
