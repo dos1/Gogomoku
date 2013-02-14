@@ -33,7 +33,6 @@ public class Field {
 			this.pwn = board.whoNext();
 			board.addHistory(this);
 			board.checkState(x, y);
-			board.nextTurn();
 		} else {
 			throw new Field.UnallowedMove();
 		}

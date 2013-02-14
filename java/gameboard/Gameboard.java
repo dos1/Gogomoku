@@ -144,9 +144,6 @@ public class Gameboard {
     	
     	return PlayState.InProgress;
     }
-    public void nextTurn() {
-    	game.nextTurn();
-    }
     public Pawn whoNext() {
     	return game.whoNext();
     }

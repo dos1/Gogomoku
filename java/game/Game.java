@@ -41,14 +41,14 @@ public class Game {
 	public int numberOfMoves() {
 		return moves_done;
 	}
-	public void nextTurn() {
+	private void nextTurn() {
 		if (who_next.getColor() == 0)
 			who_next = new BlackPawn();
 		else
 			who_next = new WhitePawn();
 		moves_done++;
 	}
-	public void undoTurn() {
+	private void undoTurn() {
 		if (who_next.getColor() == 0)
 			who_next = new BlackPawn();
 		else
@@ -105,6 +105,6 @@ public class Game {
 		
 	public void makeMove(int x, int y) throws UnallowedMove, MoveOutOfBounds {
 		board.makeMove(x, y);
-		//this.nextTurn();
+		this.nextTurn();
 	}
 }
