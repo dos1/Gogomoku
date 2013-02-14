@@ -83,7 +83,6 @@ Item {
         }
     }
     MouseArea {
-        id: lele
         anchors.fill: parent
         enabled: tile.state===0
         onClicked: {

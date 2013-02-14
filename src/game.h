@@ -49,5 +49,6 @@ class Game : public QObject {
 		void stateChanged();
 		void playerChanged();
 		void tileCleared(int number);
+		void undoEnabled(bool undo);
 };
 #endif //GAME_H

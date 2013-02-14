@@ -26,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->declarativeView->setSource(QUrl("qrc:/qml/table.qml"));
 	ui->declarativeView_2->setSource(QUrl("qrc:/qml/Tile.qml"));
 
+	connect(&game, SIGNAL(undoEnabled(bool)), ui->pushButton, SLOT(setEnabled(bool)));
+
 	game.newGame();
 	show();
 }

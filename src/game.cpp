@@ -23,6 +23,7 @@ void Game::newGame(){
 	board->cleanBoard();
 	newGameStarted();
 	stateChanged();
+	undoEnabled(false);
 }
 
 Game::~Game(){
@@ -81,6 +82,7 @@ void Game::makeMove(int x, int y) {
 
 void Game::addHistory(Field next){
 	the_story.addToHistory(next);
+	undoEnabled(true);
 }
 
 void Game::revertLastMove(){
@@ -89,8 +91,11 @@ void Game::revertLastMove(){
 		pom=the_story.takeFromHistory();
 		board->revertMove(pom.getX(),pom.getY());
 		tileCleared(pom.getX()*19+pom.getY());
+		undoTurn();
 	}
-	undoTurn();
+	if(!the_story.notEmpty()){
+		undoEnabled(false);
+	}
 }
 
 Pawn *Game::getNextPawn(){
