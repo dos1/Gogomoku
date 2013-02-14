@@ -11,9 +11,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 
-	// Register Tile to be available in QML
-	//qmlRegisterType<PlayState>("gameCore", 1, 0, "PlayState");
-
 	// Setup context
 	QDeclarativeContext *m_context;
 

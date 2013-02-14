@@ -73,8 +73,9 @@ Item {
             }
 
             Text {
+                font.family: "DejaVu Sans"
                 anchors.top: parent.top
-                anchors.topMargin: 10
+                anchors.topMargin: 8
                 anchors.left: tile.right
                 anchors.leftMargin: 10
                 font.pixelSize: 42
@@ -83,6 +84,29 @@ Item {
             }
 
             Text {
+                font.family: "DejaVu Sans"
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 30
+                anchors.left: tile.right
+                anchors.leftMargin: 10
+                font.pixelSize: 12
+                color: "white"
+                text: "Time: "+gameData.time
+            }
+
+            Text {
+                font.family: "DejaVu Sans"
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 30
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                font.pixelSize: 12
+                color: "white"
+                text: "Moves: "+gameData.moves
+            }
+
+            Text {
+                font.family: "DejaVu Sans"
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.left: tile.right

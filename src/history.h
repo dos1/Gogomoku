@@ -13,6 +13,7 @@ class History {
 		Field takeFromHistory();
 		void cleanHistory();
 		bool notEmpty();
+		int countHistory();
 };
 
 #endif // HISTORY_H

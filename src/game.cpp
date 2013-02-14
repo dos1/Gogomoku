@@ -2,6 +2,7 @@
 #include "pawn.h"
 #include "gameboard.h"
 #include <QObject>
+#include <QTime>
 
 Game::Game(QObject *parent) : QObject(parent) {
 	who_next = NULL;
@@ -114,6 +115,7 @@ PlayState Game::getState(){
 
 void Game::stopTimer(){
 	time_end = time(0);
+	time_str = QTime(0,0).addSecs(gameTime()).toString("hh:mm:ss");
 }
 
 time_t Game::gameTime(){
@@ -126,4 +128,8 @@ time_t Game::gameTime(){
 
 Gameboard *Game::getBoard(){
 	return board;
+}
+
+int Game::getMoveCount() {
+	return the_story.countHistory();
 }

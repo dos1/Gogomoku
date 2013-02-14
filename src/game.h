@@ -15,6 +15,7 @@ class Game : public QObject {
 		PlayState state_play;
 		time_t time_begin;
 		time_t time_end;
+		QString time_str;
 		Pawn *who_next;
 		Gameboard *board;
 		History the_story;
@@ -36,6 +37,12 @@ class Game : public QObject {
 
 		Q_PROPERTY(int state READ getState NOTIFY stateChanged)
 		PlayState getState();
+
+		Q_PROPERTY(int moves READ getMoveCount NOTIFY playerChanged)
+		int getMoveCount();
+
+		Q_PROPERTY(QString time READ getTime NOTIFY stateChanged)
+		QString getTime() { return time_str; }
 
 		void stopTimer();
 		time_t gameTime();

@@ -23,3 +23,7 @@ bool History::notEmpty(){
 	}
 	return TRUE;
 }
+
+int History::countHistory() {
+	return hist.count();
+}
