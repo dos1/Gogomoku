@@ -4,6 +4,7 @@ import pawn.Pawn;
 import playState.PlayState;
 import game.Game;
 import field.Field;
+import field.Field.UnallowedMove;
 
 public class Gameboard {
 	private Field tab[][];
@@ -31,9 +32,18 @@ public class Gameboard {
     		for (j = 0; j < 19; j++)
     			tab[i][j].ClearField();
     }
-    public void makeMove(int x, int y) {
-    	
-        tab[x][y].putPawn();
+    
+	@SuppressWarnings("serial")
+	public class MoveOutOfBounds extends Exception {
+		public MoveOutOfBounds() {}
+	}
+
+    public void makeMove(int x, int y) throws MoveOutOfBounds, UnallowedMove {
+    	if ((x>18) || (y>18)) {
+    		throw new MoveOutOfBounds();
+    	} else {
+    		tab[x][y].putPawn();
+    	}
     }
     public void revertMove(int x, int y) {
     	tab[x][y].ClearField();

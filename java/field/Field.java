@@ -22,12 +22,20 @@ public class Field {
 		this.pwn = null;
 	}
 	
-	public void putPawn() {
+	@SuppressWarnings("serial")
+	public class UnallowedMove extends Exception {
+
+		public UnallowedMove() {}
+	}
+
+	public void putPawn() throws UnallowedMove {
 		if (pwn == null) {
 			this.pwn = board.whoNext();
 			board.addHistory(this);
 			board.checkState(x, y);
 			board.nextTurn();
+		} else {
+			throw new Field.UnallowedMove();
 		}
 	}
 	public void ClearField() {
