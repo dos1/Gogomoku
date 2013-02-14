@@ -10,8 +10,8 @@ import gameboard.Gameboard.MoveOutOfBounds;
 public class Main {
 	public static void main(String args[]) throws IOException {
 		Game game = new Game();
-		System.out.println(game.getState());
-		while (game.getState()==PlayState.InProgress) {
+		boolean ingame = true;
+		while (ingame) {
 			Gameboard board = game.getBoard();
 			System.out.print(' ');
 			for (int j=0; j<19; j++) {
@@ -28,7 +28,7 @@ public class Main {
 						pawn='.';
 						break;
 					case 0:
-						pawn='O';
+						pawn='@';
 						break;
 					case 1:
 						pawn='#';
@@ -39,49 +39,57 @@ public class Main {
 				}
 				System.out.println();
 			}
-			char pawn;
-			if (game.getNextPlayer()==0) pawn='O'; else pawn='#';
-			System.out.print("["+pawn+"] Type coordinates, \"undo\", \"new\" or \"exit\": ");
-
-			DataInputStream in=new DataInputStream(System.in);
-
-			@SuppressWarnings("deprecation")
-			String key = in.readLine();
-
-			if (key.equalsIgnoreCase("new")) {
-				System.out.println("Starting new game...");
-				game.newGame();
-			} else if (key.equalsIgnoreCase("undo")) {
-				System.out.println("Reverting last move...");
-				game.revertLastMove();
-			} else if (key.equalsIgnoreCase("exit")) {
-				break;
+			
+			
+			PlayState state = game.getState();
+			if (state == PlayState.WinWhite) {
+				System.out.println("Game has ended with @'s win. Congratulations!");
+				ingame=false;
+			}
+			else if (state == PlayState.WinBlack) {
+				System.out.println("Game has ended with #'s win. Congratulations!");
+				ingame=false;
+			}
+			else if (state == PlayState.Draw) {
+				System.out.println("Game has ended with a draw. Try again next time!");
+				ingame=false;
 			} else {
-				int x, y;
-				try {
-					String[] myNumbers=key.split(" ");
-					x=Integer.valueOf(myNumbers[0]).intValue();
-					y=Integer.valueOf(myNumbers[1]).intValue();
-					game.makeMove(y, x);
-				} catch (UnallowedMove e) {
-					System.out.println("Invalid move");
-				} catch (MoveOutOfBounds e) {
-					System.out.println("Move ouf of bounds [0-18]");
-				} catch (Exception e) {
-					System.out.println("Invalid command");
+			
+			
+				char pawn;
+				if (game.getNextPlayer()==0) pawn='@'; else pawn='#';
+				System.out.print("["+pawn+"] Type coordinates, \"undo\", \"new\" or \"exit\": ");
+	
+				DataInputStream in=new DataInputStream(System.in);
+	
+				@SuppressWarnings("deprecation")
+				String key = in.readLine();
+	
+				if (key.equalsIgnoreCase("new")) {
+					System.out.println("Starting new game...");
+					game.newGame();
+				} else if (key.equalsIgnoreCase("undo")) {
+					System.out.println("Reverting last move...");
+					game.revertLastMove();
+				} else if (key.equalsIgnoreCase("exit")) {
+					break;
+				} else {
+					int x, y;
+					try {
+						String[] myNumbers=key.split(" ");
+						x=Integer.valueOf(myNumbers[0]).intValue();
+						y=Integer.valueOf(myNumbers[1]).intValue();
+						game.makeMove(y, x);
+					} catch (UnallowedMove e) {
+						System.out.println("Invalid move");
+					} catch (MoveOutOfBounds e) {
+						System.out.println("Move ouf of bounds [0-18]");
+					} catch (Exception e) {
+						System.out.println("Invalid command");
+					}
+	
 				}
-
 			}
 		}
-		PlayState state = game.getState();
-		//System.out.println(game.getState());
-		if (state == PlayState.WinWhite)
-			System.out.println("Game has ended with White's win. Grats!");
-		else if (state == PlayState.WinBlack)
-			System.out.println("Game has ended with Black's win. Grats!");
-		else if (state == PlayState.Draw)
-			System.out.println("Game has with draw. Better luck next time!");
-		else
-			System.out.println("It shouldn't be like that, that game is still in progress...");
 	}
 }
