@@ -62,17 +62,13 @@ public class Main {
 					String[] myNumbers=key.split(" ");
 					x=Integer.valueOf(myNumbers[0]).intValue();
 					y=Integer.valueOf(myNumbers[1]).intValue();
-				} catch (Exception e) {
-					System.out.println("Invalid command");
-					continue;
-				}
-				
-                try {
 					game.makeMove(y, x);
 				} catch (UnallowedMove e) {
 					System.out.println("Invalid move");
 				} catch (MoveOutOfBounds e) {
 					System.out.println("Move ouf of bounds [0-18]");
+				} catch (Exception e) {
+					System.out.println("Invalid command");					
 				}
 				
 			}
