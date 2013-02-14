@@ -88,7 +88,7 @@ void Game::revertLastMove(){
 	if(the_story.notEmpty()){
 		pom=the_story.takeFromHistory();
 		board->revertMove(pom.getX(),pom.getY());
-		boardChanged();
+		tileCleared(pom.getX()*19+pom.getY());
 	}
 	undoTurn();
 }

@@ -48,6 +48,6 @@ class Game : public QObject {
 		void newGameStarted();
 		void stateChanged();
 		void playerChanged();
-		void boardChanged();
+		void tileCleared(int number);
 };
 #endif //GAME_H

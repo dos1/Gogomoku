@@ -52,8 +52,11 @@ Item {
         smooth: true
         source: ""
 
+        function clearTile() { tile.state=0; tile.parent.highlighted=-1; explosion.off(); updateTile(); }
         signal clear()
-        onClear: { tile.state=0; tile.parent.highlighted=-1; explosion.off(); updateTile(); }
+        signal undo(int number)
+        onClear: clearTile();
+        onUndo: { if (number==tile.number) clearTile(); }
 
         opacity: tile.state!==0
         Behavior on opacity {
@@ -98,6 +101,7 @@ Item {
     Component.onCompleted: {
         updateTile();
         if (!tile.ro) { gameData.newGameStarted.connect(image.clear) }
+        if (!tile.ro) { gameData.tileCleared.connect(image.undo) }
     }
 
 }
