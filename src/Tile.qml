@@ -6,8 +6,8 @@ Item {
     height: 80
     property int state: gameData.nextColor+1
     property int number: 0
+    property bool ro: true
 
-    Component.onCompleted: updateTile()
 
     // Tile background rectangle
     Image {
@@ -15,7 +15,7 @@ Item {
         smooth: true
         source: "images/tile_background.png"
         opacity: {
-            if (!tile.parent) return 1.0;
+            if (tile.ro) return 1.0;
             if (tile.number===tile.parent.highlighted) {
                 explosion.on()
                 return 1.0
@@ -52,6 +52,9 @@ Item {
         smooth: true
         source: ""
 
+        signal clear()
+        onClear: { tile.state=0; explosion.off(); updateTile(); }
+
         opacity: tile.state!==0
         Behavior on opacity {
             //enabled: gameData.moves != 0
@@ -77,6 +80,7 @@ Item {
         }
     }
     MouseArea {
+        id: lele
         anchors.fill: parent
         enabled: tile.state===0
         onClicked: {
@@ -86,7 +90,14 @@ Item {
             gameData.makeMove(tile.number/19,tile.number%19)
         }
     }
+
     Explosion {
         id: explosion
     }
+
+    Component.onCompleted: {
+        updateTile();
+        if (!tile.ro) gameData.newGameStarted.connect(image.clear)
+    }
+
 }
