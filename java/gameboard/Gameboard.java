@@ -32,7 +32,8 @@ public class Gameboard {
     			tab[i][j].ClearField();
     }
     public void makeMove(int x, int y) {
-    	tab[x][y].putPawn();
+    	
+        tab[x][y].putPawn();
     }
     public void revertMove(int x, int y) {
     	tab[x][y].ClearField();

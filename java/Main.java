@@ -55,7 +55,13 @@ public class Main {
 				int x=Integer.valueOf(myNumbers[0]).intValue();
 				int y=Integer.valueOf(myNumbers[1]).intValue();
 				
-				if (board.getColor(y,x) == -1) game.makeMove(y, x);
+                if (x>=0 && x<=18 && y>=0 && y<=18) {
+                    if (board.getColor(y,x) == -1) game.makeMove(y, x);
+                }
+                else {
+                    System.out.println("Coordinates out of bounds [0-18]");
+                }
+				
 			}
 		}
 		System.out.println(game.getState());
