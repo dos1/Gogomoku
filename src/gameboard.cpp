@@ -149,7 +149,7 @@ PlayState Gameboard::checkState(int x, int y) {
 	}
 
 	//boardfull ?
-	if(game->numberOfMoves()==(19*19)){
+	if(game->getMoveCount()==(19*19)){
 		return game->drawing();
 	}
 

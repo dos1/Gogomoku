@@ -19,7 +19,6 @@ void Game::newGame(){
 	who_next = (Pawn*) new BlackPawn;
 	playerChanged();
 	state_play = InProgress;
-	moves_done = 0;
 	the_story.cleanHistory();
 	board->cleanBoard();
 	newGameStarted();
@@ -34,17 +33,12 @@ Game::~Game(){
 	delete board;
 }
 
-int Game::numberOfMoves(){
-	return moves_done;
-}
-
 void Game::nextTurn(){
 	if(who_next->getColor()==0){
 		who_next = (Pawn*) new BlackPawn;
 	}else{
 		who_next = (Pawn*) new WhitePawn;
 	}
-	moves_done++;
 	playerChanged();
 }
 
@@ -54,7 +48,6 @@ void Game::undoTurn(){
 	}else{
 		who_next = (Pawn*) new WhitePawn;
 	}
-	moves_done--;
 	playerChanged();
 }
 

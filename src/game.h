@@ -19,13 +19,12 @@ class Game : public QObject {
 		Pawn *who_next;
 		Gameboard *board;
 		History the_story;
-		int moves_done;
 		void nextTurn();
 		void undoTurn();
 	public:
 		Game(QObject *parent=0);
 		~Game();
-		int numberOfMoves();
+
 		PlayState winning(int who);
 		PlayState drawing();
 		void addHistory(Field next);
