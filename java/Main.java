@@ -2,8 +2,10 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 import playState.PlayState;
+import field.Field.UnallowedMove;
 import game.Game;
 import gameboard.Gameboard;
+import gameboard.Gameboard.MoveOutOfBounds;
 
 public class Main {
 	public static void main(String args[]) throws IOException {
@@ -39,9 +41,11 @@ public class Main {
 			}
 			char pawn;
 			if (game.getNextPlayer()==0) pawn='O'; else pawn='#';
-			System.out.print("["+pawn+"] Type coordinates, \"undo\" or \"new\": ");
+			System.out.print("["+pawn+"] Type coordinates, \"undo\", \"new\" or \"exit\": ");
 			
 			DataInputStream in=new DataInputStream(System.in);
+			
+			@SuppressWarnings("deprecation")
 			String key = in.readLine();
 			
 			if (key.equalsIgnoreCase("new")) {
@@ -50,17 +54,22 @@ public class Main {
 			} else if (key.equalsIgnoreCase("undo")) {
 				System.out.println("Reverting last move...");
 				game.revertLastMove();
+			} else if (key.equalsIgnoreCase("exit")) {
+				break;
 			} else {
-				String[] myNumbers=key.split(" ");
-				int x=Integer.valueOf(myNumbers[0]).intValue();
-				int y=Integer.valueOf(myNumbers[1]).intValue();
-				
-                if (x>=0 && x<=18 && y>=0 && y<=18) {
-                    if (board.getColor(y,x) == -1) game.makeMove(y, x);
-                }
-                else {
-                    System.out.println("Coordinates out of bounds [0-18]");
-                }
+				int x, y;
+				try {
+					String[] myNumbers=key.split(" ");
+					x=Integer.valueOf(myNumbers[0]).intValue();
+					y=Integer.valueOf(myNumbers[1]).intValue();
+					game.makeMove(y, x);
+				} catch (UnallowedMove e) {
+					System.out.println("Invalid move");
+				} catch (MoveOutOfBounds e) {
+					System.out.println("Move ouf of bounds [0-18]");
+				} catch (Exception e) {
+					System.out.println("Invalid command");					
+				}
 				
 			}
 		}

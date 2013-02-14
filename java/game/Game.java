@@ -7,8 +7,10 @@ import pawn.BlackPawn;
 import pawn.Pawn;
 import pawn.WhitePawn;
 import gameboard.Gameboard;
+import gameboard.Gameboard.MoveOutOfBounds;
 import history.History;
 import field.Field;
+import field.Field.UnallowedMove;
 
 public class Game {
 	private PlayState state_play;
@@ -100,7 +102,8 @@ public class Game {
 	public Gameboard getBoard() {
 		return board;
 	}
-	public void makeMove(int x, int y) {
+		
+	public void makeMove(int x, int y) throws UnallowedMove, MoveOutOfBounds {
 		board.makeMove(x, y);
 		//this.nextTurn();
 	}
