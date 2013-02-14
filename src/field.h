@@ -3,6 +3,7 @@
 
 //#include "pawn.h"
 #include <cstdlib>
+#include <exception>
 class Pawn;
 class Gameboard;
 class Field {
@@ -12,6 +13,13 @@ class Field {
 		Pawn *pwn;
 		Gameboard *board;
 	public:
+        class UnallowedMove{
+        public:
+            UnallowedMove(){
+
+            }
+        };
+
 		void putPawn();
 		void clearField();
 		int getX();

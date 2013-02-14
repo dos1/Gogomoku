@@ -26,13 +26,13 @@ void Gameboard::cleanBoard() {
 
 void Gameboard::makeMove(int x, int y) {
     if(x<0 || y<0 || x>18 || y>18){
-        throw "Out of bounds";
+        throw new MoveOutOfBounds();
     }
 
     try{
         tab[x][y].putPawn();
-    }catch (const char* msg){
-        throw msg;
+    }catch (Field::UnallowedMove *unal){
+        throw unal;
     }
 }
 

@@ -75,8 +75,10 @@ void Game::makeMove(int x, int y) {
     try{
         board->makeMove(x,y);
         nextTurn();
-    }catch (...){
-
+    }catch (Gameboard::MoveOutOfBounds *err){
+        throw err;
+    }catch (Field::UnallowedMove *err){
+        throw err;
     }
 }
 
@@ -87,12 +89,15 @@ void Game::addHistory(Field next){
 
 void Game::revertLastMove(){
 	Field pom;
-	if(the_story.notEmpty()){
+    try{
 		pom=the_story.takeFromHistory();
 		board->revertMove(pom.getX(),pom.getY());
 		tileCleared(pom.getX()*19+pom.getY());
 		undoTurn();
-	}
+    }catch(History::EmptyHistory *err){
+        throw err;
+    }
+
 	if(!the_story.notEmpty()){
 		undoEnabled(false);
 	}

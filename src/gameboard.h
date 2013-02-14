@@ -10,6 +10,13 @@ class Gameboard {
 	private:
 		Game *game;
 	public:
+        class MoveOutOfBounds{
+        public:
+            MoveOutOfBounds(){
+
+            }
+        };
+
 		Gameboard(Game *ptr);
 		~Gameboard();
 		void cleanBoard();

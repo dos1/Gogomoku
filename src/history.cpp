@@ -8,7 +8,9 @@ void History::addToHistory(Field next){
 }
 
 Field History::takeFromHistory(){
-
+    if(notEmpty()==FALSE){
+        throw new EmptyHistory();
+    }
 	return hist.takeLast();
 
 }

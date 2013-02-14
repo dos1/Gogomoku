@@ -8,6 +8,13 @@ class History {
 	private:
 		QList<Field> hist;
 	public:
+        class EmptyHistory{
+        public:
+            EmptyHistory(){
+
+            }
+        };
+
 		History();
 		void addToHistory(Field next);
 		Field takeFromHistory();

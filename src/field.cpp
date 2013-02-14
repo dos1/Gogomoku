@@ -49,7 +49,7 @@ bool Field::isEmpty() {
 
 void Field::putPawn(){
     if(!isEmpty()){
-        throw "Field taken";
+        throw new UnallowedMove();
     }
 
     this->pwn=board->whoNext();
